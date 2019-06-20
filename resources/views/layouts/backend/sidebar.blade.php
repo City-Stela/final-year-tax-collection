@@ -51,6 +51,7 @@
           <li><a href="{{ route('backend.businesstypes.index') }}"><i class="fa fa-circle-o"></i>Business Types</a></li>
           <li><a href="{{ route('backend.managecustomers.index') }}"><i class="fa fa-circle-o"></i>Manage Customers</a></li>
           <li><a href="{{ route('backend.paymentmethods.index') }}"><i class="fa fa-circle-o"></i>Payment Methods</i></a></li>
+          <li><a href="{{ route('backend.managepayments.index') }}"><i class="fa fa-circle-o"></i>Manage Payments</i></a></li>
         </ul>
       </li>
     </ul>
