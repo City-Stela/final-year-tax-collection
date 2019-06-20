@@ -23,7 +23,7 @@
       <li class="treeview">
         <a href="#">
           <i class="fa fa-pencil"></i>
-          <span>Blog</span>
+          <span>News</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -39,6 +39,20 @@
       @if (check_user_permissions(request(), "Users@index"))
         <li><a href="{{ route('backend.users.index') }}"><i class="fa fa-users"></i> <span>Users</span></a></li>
       @endif
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-money"></i>
+          <span>Taxation</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ route('backend.businesstypes.index') }}"><i class="fa fa-circle-o"></i>Business Types</a></li>
+          <li><a href="{{ route('backend.managecustomers.index') }}"><i class="fa fa-circle-o"></i>Manage Customers</a></li>
+          <li><a href="{{ route('backend.paymentmethods.index') }}"><i class="fa fa-circle-o"></i>Payment Methods</i></a></li>
+        </ul>
+      </li>
     </ul>
   </section>
   <!-- /.sidebar -->

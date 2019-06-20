@@ -18,6 +18,11 @@ Route::get('/services', [
     'uses' => 'BlogController@services',
     'as'   => 'services'
 ]);
+
+Route::get('/customers', [
+    'uses' => 'CustomerController@index',
+    'as'   => 'services'
+]);
 Route::get('/about', [
     'uses' => 'BlogController@about',
     'as'   => 'about'
@@ -95,3 +100,12 @@ Route::resource('/backend/users', 'Backend\UsersController',['as' =>'backend']);
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/customers/pdf','CustomerController@export_pdf');
+Route::get('customer/pdfexports/{id}','CustomerController@pdfexport');
+
+Route::get('/payments','CustomerController@payments');
+
+Route::resource('/backend/businesstypes', 'Backend\BusinessTypeController',['as' =>'backend']);
+Route::resource('/backend/paymentmethods', 'Backend\PaymentMethodController',['as' =>'backend']);
+Route::resource('/backend/managecustomers', 'Backend\ManagerCustomerController',['as' =>'backend']);
+Route::resource('/backend/managepayments', 'Backend\ManagePaymentController',['as' =>'backend']);
