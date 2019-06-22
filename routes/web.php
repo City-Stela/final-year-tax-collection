@@ -35,9 +35,9 @@ Route::get('/create-value', [
     'uses' => 'BlogController@createValue',
     'as'   => 'create-value'
 ]);
-Route::get('/how-we-work', [
-    'uses' => 'BlogController@howWeWork',
-    'as'   => 'how-we-work'
+Route::get('/client-login', [
+    'uses' => 'BlogController@clientLogin',
+    'as'   => 'client-login'
 ]);
 Route::get('/blog', [
     'uses' => 'BlogController@index',

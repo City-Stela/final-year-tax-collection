@@ -8,15 +8,18 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
     {{-- <link rel="stylesheet" href="/css/bootstrap.min.css"> --}}
-    <link rel="stylesheet" href="/static/css/app.css">
     <link rel="stylesheet" href="/css/custom.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="stylesheet" href="/static/css2/style.css">
+    <link rel="stylesheet" href="/static/css2/font-awesome.min.css">
+    <link rel="stylesheet" href="/backend/css/AdminLTE.min.css">
+
+    <link rel="stylesheet" href="/backend/plugins/iCheck/square/blue.css">
+
 </head>
 <body>
   <div>
-   @include('layouts.inc.navbar')
 
-      {{-- navigation bar --}}
         
       
 
@@ -51,8 +54,18 @@
 
     {{-- <script src="/js/bootstrap.min.js"></script> --}}
     <script src="/static/js/app.js"></script>
+    <script src="/static/js2/tax.js"></script>
     <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/ScrollMagic.min.js"></script>
-    <script src="/static/js/drop-downmenu.js"></script>
+
+    <script src="backend/plugins/iCheck/icheck.min.js"></script>
+    <script>
+      $(function () {
+        $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+      });
+    </script>
 </body>
 </html>

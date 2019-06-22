@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use Illuminate\Support\Str;
 
 use App\Payment;
 use App\Customer;
@@ -18,7 +19,7 @@ class ManagePaymentController extends BackendController
      */
     public function index()
     {
-        $payments = Payment::with('customer','paymentMethod')->orderby('updated_at','desc')->paginate(10);
+        $payments = Payment::with('customer','paymentMethod','status')->orderby('updated_at','desc')->paginate(10);
         $payments_count = Payment::count();        
         return view('customer.backend.managepayment.index',compact('payments','payments_count'));
     }
@@ -30,8 +31,8 @@ class ManagePaymentController extends BackendController
      */
     public function create(Payment $payment)
     {
-        $customer = new Customer();
-        return view('customer.backend.managecustomer.create', compact('customer'));
+        $token = Str::random(15);        
+        return view('customer.backend.managepayment.create', compact('payment','token'));
     }
 
     /**
@@ -40,10 +41,10 @@ class ManagePaymentController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\CustomerStoreRequest $request)
+    public function store(Requests\PaymentStoreRequest $request)
     {
-        Customer::create($request->all());
-        return redirect("/backend/managecustomers")->with("message", "New payment method was created successfully!");
+        Payment::create($request->all());
+        return redirect("/backend/managepayments")->with("message", "New payment was created successfully!");
     }
 
     /**

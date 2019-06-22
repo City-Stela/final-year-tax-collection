@@ -23,26 +23,21 @@ class BlogController extends Controller
                     ->filter(request()->only(['term', 'year', 'month']))
                     ->simplePaginate($this->limitHone);
 
-        return view("blog.landing-page", compact('posts'));
+        return view("blog.tax-land", compact('posts'));
+        // return view("blog.landing-page", compact('posts'));
     }
 
-    public function createValue()
+    public function clientLogin()
     {
-        $title = '<h4>How <span>NDEBI <img src="/img/ndebi-favi.png" alt="" width="25px" height="25px"/> TECH</span> <span></span> creates value for its clients</h4>';
+        $title = '';
         
 
-        return view("blog.create-value", compact('title'));
+        return view("blog.client-login", compact('title'));
     }
-    public function howWeWork()
-    {
-        $title = '<h4>How <span>NDEBI <img src="/img/ndebi-favi.png" alt="" width="25px" height="25px"/> TECH</span> <span></span> Works</h4>';
-        
 
-        return view("blog.how-we-work", compact('title'));
-    }
     public function services()
     {
-        $title = '<h4><span>NDEBI <img src="/img/ndebi-favi.png" alt="" width="25px" height="25px"/> TECH</span> <span></span> services</h4>';
+        $title = '<h4>Services</h4>';
         
 
         return view("blog.services", compact('title'));

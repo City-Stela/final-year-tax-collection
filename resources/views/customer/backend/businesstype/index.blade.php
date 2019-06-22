@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'MyBlog | businessTypes')
+@section('title', 'KCCA TAXATION COLLECTION | Business Types')
 
 @section('content')
 

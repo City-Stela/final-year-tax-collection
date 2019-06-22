@@ -36,29 +36,24 @@ class CreateCustomersTable extends Migration
             $table->foreign('business_type_id')->references('id')->on('business_types')->onDelete('cascade');
         });
 
+        Schema::create('status', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('status_value')->default('unverifed');
+        });
+
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('payment_token');
+            $table->unsignedBigInteger('status_id');
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('payment_method_id');
-            // $table->unsignedBigInteger('business_type_id');
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('status_id')->references('id')->on('status')->onDelete('cascade');
             $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade');
-            // $table->foreign('business_type_id')->references('id')->on('business_types')->onDelete('cascade');
         });
 
-        // Schema::create('business_type_payments', function (Blueprint $table) {
-        //     $table->bigIncrements('id');
-        //     $table->unsignedBigInteger('business_type_id');
-        //     $table->unsignedBigInteger('payment_id');
-        //     $table->timestamps();
-
-            // $table->foreign('business_type_id')->references('id')->on('business_types')->onDelete('cascade');
-        //     $table->foreign('payment_id')->references('id')->on('payments')->onDelete('cascade');
-
-        // });
 
 
         
@@ -74,6 +69,7 @@ class CreateCustomersTable extends Migration
         Schema::dropIfExists('business_types');
         Schema::dropIfExists('payment_methods');
         Schema::dropIfExists('customers');
+        Schema::dropIfExists('status');
         Schema::dropIfExists('payments');
         Schema::dropIfExists('business_type_payments');
     }

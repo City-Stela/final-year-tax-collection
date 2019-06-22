@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'MyBlog | Blog index')
+@section('title', 'KCCA TAXATION COLLECTION | Manage Payment index')
 
 @section('content')
 
@@ -27,7 +27,7 @@
               <div class="box">
                 <div class="box-header clearfix">
                     <div class="pull-left">
-                        <a href="{{ route('backend.managecustomers.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Add New</a>
+                        <a href="{{ route('backend.managepayments.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Add New</a>
                     </div>
                     
                 </div>

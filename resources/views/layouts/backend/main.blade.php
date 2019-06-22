@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="shortcut icon" href="/img/ndebi-tech-favi-blue.png" type="image/x-icon">
+  <link rel="shortcut icon" href="#" type="image/x-icon">
   
 
-  <title>@yield('title', 'NDEBITECH')</title>
+  <title>@yield('title', 'KCCATAXCOLLECTION')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -47,7 +47,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2019 <a href="/">NDEBI TECH</a>.</strong> All rights
+    <strong>Copyright &copy; 2019 <a href="/">KCCATAXCOLLECTION</a>.</strong> All rights
     reserved.
   </footer>
 

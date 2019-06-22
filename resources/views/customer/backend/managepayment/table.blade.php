@@ -8,6 +8,7 @@
           <th>Business Type Amount</th>
           <th>Payment Method</th>
           <th>Payment Token</th>
+          <th>Status</th>
           <th>Payment Date</th>
           <th style="text-align: right;width:92px">Print</th>
       </tr>
@@ -43,6 +44,7 @@
           <td>{{ $payment->customer->businessTypes->business_types_amount }}</td>
           <td>{{ $payment->paymentMethod->payment_method_name }}</td>
           <td>{{ $payment->payment_token }}</td>
+          <td>{{$payment->status->status_value}}</td>
           <td>{{ $payment->updated_at }}</td>
           <td>
           <a class="btn btn-warning btn-xs" href="{{ url('customer/pdfexports/' . $payment->id)}}" target="blank">PDF EXPORT</a>

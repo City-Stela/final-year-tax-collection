@@ -7,21 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\PaymentMethod;
 use App\BusinessType;
+use App\Status;
 
 class Payment extends Model
 {
     public $table = 'payments';
     protected $fillable = [
-        'customer_id','payment_method_id',
+        'payment_token','status_id','payment_method_id','customer_id'
     ];
+
+    public function paymentMethod()
+    {
+        return $this->belongsTo(PaymentMethod::class);
+    }
 
     public function customer()
     {
         return $this->belongsTo(Customer::class);
     }
 
-    public function paymentMethod()
+    public function status()
     {
-        return $this->belongsTo(PaymentMethod::class);
+        return $this->belongsTo(Status::class);
     }
 }

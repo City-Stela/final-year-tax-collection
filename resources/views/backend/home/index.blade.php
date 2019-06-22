@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'MyBlog | Dashboar')
+@section('title', 'KCCA TAXATION | Dashboar')
 
 @section('content')
 
@@ -22,11 +22,14 @@
               <div class="box">
                 <!-- /.box-header -->
                 <div class="box-body ">
-                      <h3>Welcome to MyBlog!</h3>
-                      <p class="lead text-muted">Hallo {{ Auth::user()->name }}, Welcome to MyBlog</p>
+                      <h3>Welcome to KCCA TAXATION SYSTEM</h3>
+                      <p class="lead text-muted">Hallo {{ Auth::user()->name }}, Welcome to KCCA TAXATION SYSTEM</p>
 
                       <h4>Get started</h4>
-                      <p><a href="{{ route('backend.blog.create') }}" class="btn btn-primary">Write your first blog post</a> </p>
+                      <p><a href="{{ route('backend.blog.create') }}" class="btn btn-primary">Write KCCA TAXATION News posts</a> </p>
+                      <p><a href="{{ route('backend.businesstypes.create') }}" class="btn btn-success">Write business types posts</a> </p>
+                      <p><a href="{{ route('backend.managecustomers.index') }}" class="btn btn-info">View Kampala business</a> </p>
+                      <p><a href="{{ route('backend.managecustomers.index') }}" class="btn btn-danger">View payment status Kampala business</a> </p>
                 </div>
                 <!-- /.box-body -->
               </div>

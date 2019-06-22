@@ -91,7 +91,7 @@ class BusinessTypeController extends BackendController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Requests\BusinessTypeDestroyResquest $request, $id)
+    public function destroy(Requests\BusinessTypeDestroyRequest $request, $id)
     {
         Customer::where('business_type_id',$id)->update(['business_type_id'=>config('cms.default_business_type_id')]);
 

@@ -1,32 +1,20 @@
-@extends('layouts.tax')
-
-@section('title', 'Blog')
+@extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
 
-    <div class="row no-gutter">
-   
-        <!-- The image half -->
-        <div class="col-md-6 d-none d-md-flex bg-image"></div>
-
-
-        <!-- The content half -->
-        <div class="col-md-6 bg-light">
-            <div class="login d-flex align-items-center py-5">
-
-                <!-- Demo content-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 col-xl-7 mx-auto">
-                            <h3 class="display-5">KCCA TAX COLLECTION</h3>
-                            <p class="text-muted mb-4">Create a login</p>
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/"><b>KCCATAXCOLLECTION</b>SYSTEM</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your session</p>
 
     <form method="POST" action="{{ url('/login') }}">
         {{ csrf_field() }}
       <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
         <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}">
-        {{-- <span class="fa fa-envelope form-control-feedback"></span> --}}
+        <span class="fa fa-envelope form-control-feedback"></span>
 
         @if ($errors->has('email'))
             <span class="help-block">
@@ -36,7 +24,7 @@
       </div>
       <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
         <input type="password" class="form-control" placeholder="Password" name="password">
-        {{-- <span class="fa fa-lock form-control-feedback"></span> --}}
+        <span class="fa fa-lock form-control-feedback"></span>
 
         @if ($errors->has('password'))
             <span class="help-block">
@@ -62,17 +50,10 @@
 
     <br>
     <a href="{{ url('/password/reset') }}">I forgot my password</a><br>
-    <br>
-    <div class="text-center d-flex justify-content-between mt-4"><p>&nbsp;&nbsp;&nbsp; <a href="/" class="font-italic text-muted"> 
-      <u>back to the site</u></a></p></div>
+
   </div>
+  <!-- /.login-box-body -->
 </div>
-</div><!-- End -->
-
-</div>
-</div><!-- End -->
-
-</div>
-</div>
+<!-- /.login-box -->
 
 @endsection

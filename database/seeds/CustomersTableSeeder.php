@@ -26,15 +26,8 @@ class CustomersTableSeeder extends Seeder
         DB::table('business_types')->delete();
         DB::table('payment_methods')->delete();
         DB::table('customers')->delete();
+        DB::table('status')->delete();
         DB::table('payments')->delete();
-        // DB::table('business_type_payments')->delete();
-
-        // generate 36 dummy posts data
-        $business_types = [];
-        $payment_methods = [];
-        $customers = [];
-        $payments = [];
-        // $business_type_payments = [];
 
         $faker = Factory::create();
         $fakery = new Fakery;
@@ -107,6 +100,95 @@ class CustomersTableSeeder extends Seeder
                 ]
             ]);
 
+            DB::table('customers')->insert([
+                [
+                    'name' => $faker->name,
+                    'business_type_id' => rand(1,5),
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ],
+                [
+                    'name' => $faker->name,
+                    'business_type_id' => rand(1,5),
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ],
+                [
+                    'name' => $faker->name,
+                    'business_type_id' => rand(1,5),
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ],
+                [
+                    'name' => $faker->name,
+                    'business_type_id' => rand(1,5),
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ],
+                [
+                    'name' => $faker->name,
+                    'business_type_id' => rand(1,5),
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ]
+            ]);
+
+            DB::table('status')->insert([
+                [
+                    'status_value' => 'unverifed',
+                ],
+                [
+                    'status_value' => 'paided',
+                ],
+                [
+                    'status_value' => 'up-front',
+                    
+                ]
+            ]);
+            
+            DB::table('payments')->insert([
+                [
+                    'payment_token' => Str::random(15),
+                    'status_id' => rand(1,3),
+                    'customer_id' => rand(1,5),
+                    'payment_method_id' => rand(1,5),
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ],
+                [
+                    'payment_token' => Str::random(15),
+                    'status_id' => rand(1,3),
+                    'customer_id' => rand(1,5),
+                    'payment_method_id' => rand(1,5),
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ],
+                [
+                    'payment_token' => Str::random(15),
+                    'customer_id' => rand(1,5),
+                    'status_id' => rand(1,3),
+                    'payment_method_id' => rand(1,5),
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ],
+                [
+                    'payment_token' => Str::random(15),
+                    'status_id' => rand(1,3),
+                    'customer_id' => rand(1,5),
+                    'payment_method_id' => rand(1,5),
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ],
+                [
+                    'payment_token' => Str::random(15),
+                    'customer_id' => rand(1,5),
+                    'status_id' => rand(1,3),
+                    'payment_method_id' => rand(1,5),
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ]
+            ]);
+
         }
         else
         {
@@ -123,42 +205,41 @@ class CustomersTableSeeder extends Seeder
                 'updated_at'   => $date
             ]);
 
+
+            DB::table('status')->insert([
+                [
+                    'status_value' => 'unverifed',
+                ],
+                [
+                    'status_value' => 'paided',
+                ],
+                [
+                    'status_value' => 'up-front',
+                    
+                ]
+            ]);
+            DB::table('customers')->insert([
+                [
+                    'name' => $faker->name,
+                    'business_type_id' => 1,
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+                ]
+            ]);
+
+            DB::table('payments')->insert([
+                'payment_token' => Str::random(15),
+                    'status_id' => rand(1,3),
+                    'customer_id' => 1,
+                    'payment_method_id' => 1,
+                    'created_at'   => $date,
+                    'updated_at'   => $date
+            ]);
+
             
         }
 
-        for ($i = 1; $i <= 36; $i++)
-        {
-          
-            $date->addDays(10);
-          
-            $createdDate   = clone($date);
-
-            $customers[] = [
-                'name' => $faker->name,
-                'business_type_id' => rand(1,5),
-                'created_at'   => $createdDate,
-                'updated_at'   => $createdDate
-            ];
-        }
-
-        for ($i = 1; $i <= 60; $i++)
-        {
-            $date->addDays(10);
-            $createdDate   = clone($date);
-
-            $payments[] = [
-                'customer_id' => rand(1,36),
-                'payment_method_id' => rand(1,5),
-                'payment_token'=>Str::random(15),
-                'created_at'   => $createdDate,
-                'updated_at'   => $createdDate
-            ];
-        }
-
-
     
-        DB::table('customers')->insert($customers);
-        DB::table('payments')->insert($payments);
     }
 
     
